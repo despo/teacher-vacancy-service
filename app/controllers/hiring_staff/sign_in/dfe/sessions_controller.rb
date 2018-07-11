@@ -9,6 +9,7 @@ class HiringStaff::SignIn::Dfe::SessionsController < HiringStaff::BaseController
     if permissions.school_urn.present?
       session.update(session_id: oid)
       session.update(urn: permissions.school_urn)
+      Auditor::Audit.new(current_school, 'login.dfe-sign-in', current_session_id).log
       redirect_to school_path
     else
       redirect_to root_path, notice: I18n.t('errors.sign_in.unauthorised')
