@@ -76,6 +76,9 @@ module "ecs" {
 
   reindex_vacancies_task_command                 = "${var.reindex_vacancies_task_command}"
 
+  log_auth_audit_task_command                    = "${var.log_auth_audit_task_command}"
+  log_auth_audit_task_schedule                   = "${var.log_auth_audit_task_schedule}"
+
   aws_alb_target_group_arn      = "${module.core.alb_target_group_arn}"
   aws_cloudwatch_log_group_name = "${module.logs.aws_cloudwatch_log_group_name}"
 

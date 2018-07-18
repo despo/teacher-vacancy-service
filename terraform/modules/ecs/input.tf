@@ -69,5 +69,10 @@ variable "reindex_vacancies_task_command" {
   type = "list"
 }
 
+variable "log_auth_audit_task_command" {
+  type = "list"
+}
+
 variable "vacancies_scrape_task_schedule" {}
 variable "sessions_trim_task_schedule" {}
+variable "log_auth_audit_task_schedule" {}

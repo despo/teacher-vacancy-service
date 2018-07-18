@@ -152,6 +152,16 @@ variable "reindex_vacancies_task_command" {
   default     = ["rake", "elasticsearch:vacancies:index"]
 }
 
+variable "log_auth_audit_task_command" {
+  description = "The Entrypoint for the log_auth_audit task"
+  default     = ["rake", "verbose", "spreadsheet:write_auth"]
+}
+
+variable "log_auth_audit_task_schedule" {
+  description = "log_auth_audit schedule expression - https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html"
+  default     = "rate(24 hours)"
+}
+
 variable "vacancies_scrape_task_schedule" {
   description = "vacancies_scrape schedule expression - https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html"
   default     = "rate(60 minutes)"
