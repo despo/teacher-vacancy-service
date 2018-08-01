@@ -17,11 +17,11 @@ Rails.application.routes.draw do
   resource :identifications, only: %i[new create], controller: 'hiring_staff/identifications'
 
   # Sign in
-  resource :sessions, only: %i[destroy], controller: 'hiring_staff/sessions'
+  resource :sessions, only: %i[new destroy], controller: 'hiring_staff/sessions'
 
   # DfE Sign In
   resource :sessions,
-           only: %i[create new],
+           only: %i[create new show],
            as: :dfe,
            path: '/dfe/sessions',
            controller: 'hiring_staff/sign_in/dfe/sessions'

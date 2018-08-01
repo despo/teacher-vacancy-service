@@ -68,7 +68,7 @@ class HiringStaff::SignIn::Azure::SessionsController < HiringStaff::BaseControll
 
   def select_school(permissions)
     Auditor::Audit.new(nil, 'azure.authorisation.select_school', current_session_id).log_without_association
-    session.update(tva_permissions: permissions.all_permissions, oid: oid)
+    session.update(provider: 'azure', tva_permissions: permissions.all_permissions, oid: oid)
   end
 
   def set_selected_school
