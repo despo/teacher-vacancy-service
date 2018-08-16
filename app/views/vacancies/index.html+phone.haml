@@ -1,13 +1,13 @@
 - content_for :page_title_prefix, t('jobs.heading')
 
-%h1.heading-xlarge
+%h1.govuk-heading-xl
   = t('jobs.heading')
 .grid-row
 
   .column-two-thirds
-    %p.heading-medium.mt0.mb1
-      %p.heading-medium.mt0= @vacancies.total_count_message
-      = link_to 'Refine your search?', '#filters'
+    %p.govuk-heading-m.mt0.mb1
+      %p.govuk-heading-m.mt0= @vacancies.total_count_message
+      = link_to 'Refine your search?', '#filters', class: 'govuk-link'
     - if @vacancies.any?
       %div.sortable-links
         = t('jobs.sort_by')

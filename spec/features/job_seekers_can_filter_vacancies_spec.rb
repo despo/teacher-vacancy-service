@@ -10,7 +10,7 @@ RSpec.feature 'Filtering vacancies' do
 
     within '.filters-form' do
       fill_in 'keyword', with: 'Headmaster'
-      page.find('.button[type=submit]').click
+      page.find('.govuk-button[type=submit]').click
     end
 
     expect(page).to have_content(headmaster.job_title)
@@ -32,7 +32,7 @@ RSpec.feature 'Filtering vacancies' do
     within '.filters-form' do
       fill_in 'location', with: 'enfield'
       select 'Within 25 miles'
-      page.find('.button[type=submit]').click
+      page.find('.govuk-button[type=submit]').click
     end
 
     expect(page).to have_content(enfield_vacancy.job_title)
@@ -48,7 +48,7 @@ RSpec.feature 'Filtering vacancies' do
 
     within '.filters-form' do
       select 'Part time', from: 'working_pattern'
-      page.find('.button[type=submit]').click
+      page.find('.govuk-button[type=submit]').click
     end
 
     expect(page).to have_content(part_time_vacancy.job_title)
@@ -64,7 +64,7 @@ RSpec.feature 'Filtering vacancies' do
 
     within '.filters-form' do
       select 'Primary', from: 'phase'
-      page.find('.button[type=submit]').click
+      page.find('.govuk-button[type=submit]').click
     end
 
     expect(page).to have_content(primary_vacancy.job_title)
@@ -80,7 +80,7 @@ RSpec.feature 'Filtering vacancies' do
 
     within '.filters-form' do
       select '£30,000', from: 'minimum_salary'
-      page.find('.button[type=submit]').click
+      page.find('.govuk-button[type=submit]').click
     end
 
     expect(page).to have_content(higher_paid_vacancy.job_title)
@@ -96,7 +96,7 @@ RSpec.feature 'Filtering vacancies' do
 
     within '.filters-form' do
       select '£40,000', from: 'maximum_salary'
-      page.find('.button[type=submit]').click
+      page.find('.govuk-button[type=submit]').click
     end
 
     expect(page).to have_content(lower_paid_vacancy.job_title)

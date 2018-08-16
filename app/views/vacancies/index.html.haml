@@ -2,13 +2,13 @@
 
 = render partial: 'shared/beta_banner'
 
-%h1.heading-xlarge
+%h1.govuk-heading-xl
   = t('jobs.heading')
-.grid-row
-  .column-one-third
+.govuk-grid-row
+  .govuk-grid-column-one-third
     = render 'filters'
-  .column-two-thirds
-    %p.heading-medium.mt0= @vacancies.total_count_message
+  .govuk-grid-column-two-thirds
+    %p.govuk-heading-m.mt0= @vacancies.total_count_message
     - if @vacancies.any?
       %div.sortable-links
         = t('jobs.sort_by')
