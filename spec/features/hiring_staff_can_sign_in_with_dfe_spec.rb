@@ -68,7 +68,6 @@ RSpec.feature 'Hiring staff signing-in with DfE Sign In' do
         .and_return(mock_permissions)
       visit root_path
       click_on(I18n.t('nav.sign_in'))
-      choose(HiringStaff::IdentificationsController::DFE_SIGN_IN_OPTIONS.first.to_radio.last)
       click_on(I18n.t('sign_in.link'))
     end
 
@@ -147,7 +146,6 @@ RSpec.feature 'Hiring staff signing-in with DfE Sign In' do
 
       visit root_path
       click_on(I18n.t('nav.sign_in'))
-      choose(HiringStaff::IdentificationsController::DFE_SIGN_IN_OPTIONS.first.to_radio.last)
       click_on(I18n.t('sign_in.link'))
     end
 
@@ -186,7 +184,6 @@ RSpec.feature 'Hiring staff signing-in with DfE Sign In' do
         .and_return(AuthHelpers::MockPermissions.new(mock_response))
       visit root_path
       click_on(I18n.t('nav.sign_in'))
-      choose(HiringStaff::IdentificationsController::DFE_SIGN_IN_OPTIONS.first.to_radio.last)
       click_on(I18n.t('sign_in.link'))
     end
 
@@ -225,7 +222,6 @@ RSpec.feature 'Hiring staff signing-in with DfE Sign In' do
         .and_return(AuthHelpers::MockPermissions.new(mock_response))
       visit root_path
       click_on(I18n.t('nav.sign_in'))
-      choose(HiringStaff::IdentificationsController::DFE_SIGN_IN_OPTIONS.first.to_radio.last)
       click_on(I18n.t('sign_in.link'))
     end
 

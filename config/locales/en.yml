@@ -17,10 +17,9 @@ en:
     school_page_link: 'My jobs'
   sign_in:
     title: 'Sign in to Teaching Jobs'
-    intro: 'While we are rolling out this service we need to know which area your school is in so that you can sign into the service.'
-    legend: 'Please select your area:'
-    no_area: "Not in one of these areas? Register your interest in using the service by emailing %{email_link} and we'll let you know when it will be available to you."
     link: 'Sign in to Teaching Jobs'
+    guidance: 'You can sign into this service if you have recieved an invitation from us by email.'
+    expectations: "From August 2018 we are inviting more schools across England. If you have not yet been invited and would like to use this service, register your interest with the number of jobs you're ready to list by emailing us at %{email_link}."
     organisation:
       title: 'Select your organisation'
       legend: 'You are associated with more than one organisation, please select the one you wish to sign-in with.'
