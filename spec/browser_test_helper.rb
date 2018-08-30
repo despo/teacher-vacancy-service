@@ -14,13 +14,14 @@ if ENV['TEST_BROWSER'] == 'browserstack'
 
   CONFIG ||= YAML.safe_load(File.read(File.join(File.dirname(__FILE__), '../config/browserstack.yml')))
   TASK_ID = ENV['TASK_ID'] ||= '0'
+  puts "Configuring Capybara for #{CONFIG['browser_caps'][TASK_ID.to_i]['browser']}"
 
   Capybara.register_driver :browserstack do |app|
     caps = CONFIG['common_caps'].merge(CONFIG['browser_caps'][TASK_ID.to_i])
     caps['browserstack.local'] = true
 
     @browserstack_local = BrowserStack::Local.new
-    @browserstack_local.start('key' => (ENV['BROWSERSTACK_ACCESS_KEY']).to_s, 'forcelocal' => true)
+    @browserstack_local.start('key' => (ENV['BROWSERSTACK_ACCESS_KEY']).to_s, 'forcelocal' => true, 'v' => true, 'force' => true)
 
     url = "http://#{ENV['BROWSERSTACK_USERNAME']}:#{ENV['BROWSERSTACK_ACCESS_KEY']}@hub-cloud.browserstack.com/wd/hub"
     Capybara::Selenium::Driver.new(app,
@@ -34,15 +35,15 @@ if ENV['TEST_BROWSER'] == 'browserstack'
   Capybara.current_driver = :browserstack
   Capybara.run_server = true
   Capybara.ignore_hidden_elements = false
+  Capybara.default_max_wait_time = 10
 
   at_exit do
-    @browserstack_local&.stop
+    puts "Is running? #{@browserstack_local.isRunning}"
+    puts 'Exited....'
   end
 
   puts "Running specs with BrowserStack using #{CONFIG['browser_caps'][TASK_ID.to_i]['browser']}"
-
 else
-
   Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(app, phantomjs_options: ['--load-images=false'])
   end

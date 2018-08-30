@@ -1,6 +1,7 @@
 common_caps:
   "browserstack.debug": true
   "browserstack.local": true
+  "build": "rspec-browserstack"
   "project": "TeachingJobs"
 
 browser_caps:
