@@ -35,7 +35,7 @@ if ENV['TEST_BROWSER'] == 'browserstack'
   Capybara.current_driver = :browserstack
   Capybara.run_server = true
   Capybara.ignore_hidden_elements = false
-  Capybara.default_max_wait_time = 10
+  Capybara.default_max_wait_time = 15
 
   at_exit do
     puts "Is running? #{@browserstack_local.isRunning}"

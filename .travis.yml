@@ -6,5 +6,9 @@ script:
  - docker-compose --file docker-compose.test.yml build
  - docker-compose --file docker-compose.test.yml up -d db-test
  - docker-compose --file docker-compose.test.yml up -d elasticsearch-test
- - docker-compose --file docker-compose.test.yml run -e BROWSERSTACK_USERNAME=${BROWSERSTACK_USERNAME} -e BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} test rake browserstack:all
+ - docker-compose --file docker-compose.test.yml run -e BROWSERSTACK_USERNAME=${BROWSERSTACK_USERNAME} -e BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} -e TASK_ID=0 test rake browserstack:all
+ - docker-compose --file docker-compose.test.yml run -e BROWSERSTACK_USERNAME=${BROWSERSTACK_USERNAME} -e BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} -e TASK_ID=1 test rake browserstack:all
+ - docker-compose --file docker-compose.test.yml run -e BROWSERSTACK_USERNAME=${BROWSERSTACK_USERNAME} -e BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} -e TASK_ID=2 test rake browserstack:all
+ - docker-compose --file docker-compose.test.yml run -e BROWSERSTACK_USERNAME=${BROWSERSTACK_USERNAME} -e BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} -e TASK_ID=3 test rake browserstack:all
+ - docker-compose --file docker-compose.test.yml run -e BROWSERSTACK_USERNAME=${BROWSERSTACK_USERNAME} -e BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} -e TASK_ID=4 test rake browserstack:all
  - docker-compose --file docker-compose.test.yml down
